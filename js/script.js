@@ -6,13 +6,13 @@ function resetSign01(){
     
 }
 
-function resetSign02() {
+function resetSign02(event) {
     var signData = ['greeting', 'userSign', 'tiles', 'subTotal', 'shipping', 'grandTotal'];
 
     for (var i=0; i<signData.length; i++) {
-        setTextContentById(signData[i], 'Dogs')
+        setTextContentById(signData[i], '')
     } 
-
+    event.preventDefault();
 }
 
 // Create variables for the welcome message
@@ -57,6 +57,11 @@ setTextContentById('grandTotal', '$' + grandTotal);
 
 initiateVars();
 setSign();
-resetSign02();
+// resetSign02();
+
+var el = 
+document.getElementById('resetButton')
+
+el.addEventListener('click', resetSign02, false);
 
 // Note: textContent does not work in IE8 or earlier - see explanation on website
