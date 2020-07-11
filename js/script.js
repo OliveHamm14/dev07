@@ -1,3 +1,20 @@
+function resetSign01(){
+    welcome = '';
+    sign = '';
+    calcSign();
+    setSign();
+    
+}
+
+function resetSign02() {
+    var signData = ['greeting', 'userSign', 'tiles', 'subTotal', 'shipping', 'grandTotal'];
+
+    for (var i=0; i<signData.length; i++) {
+        setTextContentById(signData[i], 'Dogs')
+    } 
+
+}
+
 // Create variables for the welcome message
 var greeting = '[not initialized]' ; 
 var name = '[not initialized]';
@@ -18,7 +35,7 @@ function initiateVars() {
     greeting = 'Howdy';
     name = 'Olivia';
     message = 'Please check your order:';
-    sign = 'JavaScript!';
+    sign = 'Dogs';
     welcome = greeting + '! ' + name + ', ' + message;
     calcSign();
 }
@@ -29,16 +46,17 @@ function setTextContentById(getId, setMsg) {
     // Replace the content of that element with the personalized welcome message
     el.textContent = setMsg;
 } 
-
-initiateVars();
+function setSign(){
 setTextContentById('greeting', welcome);
 setTextContentById('userSign', sign);
 setTextContentById('tiles', tiles);
-setTextContentById('subTotal', '$' + subtotal);
+setTextContentById('subTotal', '$' + subTotal);
 setTextContentById('shipping', '$' + shipping);
 setTextContentById('grandTotal', '$' + grandTotal);
+};
 
-
-
+initiateVars();
+setSign();
+resetSign02();
 
 // Note: textContent does not work in IE8 or earlier - see explanation on website
